@@ -45,7 +45,7 @@ if [ -n "$2" ]; then
 	git commit -m "manifest" &&
 	cd ..
 else
-	GITREPO="git://github.com/mozilla-b2g/b2g-manifest"
+	GITREPO="git://github.com/weideng/b2g-manifest"
 fi
 
 echo MAKE_FLAGS=-j$((CORE_COUNT + 2)) > .tmp-config
@@ -56,6 +56,10 @@ case "$1" in
 	echo DEVICE=galaxys2 >> .tmp-config &&
 	repo_sync galaxy-s2 &&
 	(cd device/samsung/galaxys2 && ./extract-files.sh)
+	;;
+"sp8810ea")
+	echo DEVICE=sp8810ea >> .tmp-config &&
+	repo_sync sp8810ea 
 	;;
 
 "galaxy-nexus")
