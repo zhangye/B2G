@@ -109,6 +109,7 @@ case "$1" in
 	echo
 	echo Valid devices to configure are:
 	echo - galaxy-s2
+        echo - sp8810ea
 	echo - galaxy-nexus
 	echo - nexus-s
 	echo - otoro
