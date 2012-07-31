@@ -1,7 +1,6 @@
 #!/bin/bash
 
-REPO=`which repo`
-#REPO=./repo
+REPO=./repo
 
 repo_sync() {
 	if [ "$GITREPO" = "$GIT_TEMP_REPO" ]; then
@@ -61,7 +60,7 @@ case "$1" in
 	;;
 "sp8810ea")
 	echo DEVICE=sp8810ea >> .tmp-config &&
-	repo_sync sprdroid4.0.3_vlx_3.0_b2g 
+	repo_sync mozilla4.0.3_vlx_3.0_b2g 
 	#repo_sync sp8810ea 
 	;;
 
