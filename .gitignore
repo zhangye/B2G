@@ -28,3 +28,5 @@ rilproxy/
 sdk/
 system/
 vendor/
+kernel/
+u-boot
