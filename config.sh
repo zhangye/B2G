@@ -56,25 +56,25 @@ case "$1" in
 "sp8810eabase")
 	echo DEVICE=sp8810ea >> .tmp-config &&
 	echo LUNCH=sp8810eabase-eng >> .tmp-config &&
-	repo_sync mozilla4.0.3_vlx_3.0
+	repo_sync mozilla4.0.3_vlx_3.0_b2g
 	;;
 
 "sp8810eaplus")
 	echo DEVICE=sp8810ea >> .tmp-config &&
 	echo LUNCH=sp8810eaplus-eng >> .tmp-config &&
-	repo_sync mozilla4.0.3_vlx_3.0
+	repo_sync mozilla4.0.3_vlx_3.0_b2g
 	;;
 
 "sp8810ebbase")
 	echo DEVICE=sp8810eb >> .tmp-config &&
 	echo LUNCH=sp8810ebbase-eng >> .tmp-config &&
-	repo_sync mozilla4.0.3_vlx_3.0
+	repo_sync mozilla4.0.3_vlx_3.0_b2g
 	;;
 
 "sp8810ebplus")
 	echo DEVICE=sp8810eb >> .tmp-config &&
 	echo LUNCH=sp8810ebplus-eng >> .tmp-config &&
-	repo_sync mozilla4.0.3_vlx_3.0
+	repo_sync mozilla4.0.3_vlx_3.0_b2g
 	;;
 
 "galaxy-s2")
