@@ -53,15 +53,34 @@ echo MAKE_FLAGS=-j$((CORE_COUNT + 2)) > .tmp-config
 echo GECKO_OBJDIR=$PWD/objdir-gecko >> .tmp-config
 
 case "$1" in
+"sp8810eabase")
+	echo DEVICE=sp8810ea >> .tmp-config &&
+	echo LUNCH=sp8810eabase-eng >> .tmp-config &&
+	repo_sync mozilla4.0.3_vlx_3.0
+	;;
+
+"sp8810eaplus")
+	echo DEVICE=sp8810ea >> .tmp-config &&
+	echo LUNCH=sp8810eaplus-eng >> .tmp-config &&
+	repo_sync mozilla4.0.3_vlx_3.0
+	;;
+
+"sp8810ebbase")
+	echo DEVICE=sp8810eb >> .tmp-config &&
+	echo LUNCH=sp8810ebbase-eng >> .tmp-config &&
+	repo_sync mozilla4.0.3_vlx_3.0
+	;;
+
+"sp8810ebplus")
+	echo DEVICE=sp8810eb >> .tmp-config &&
+	echo LUNCH=sp8810ebplus-eng >> .tmp-config &&
+	repo_sync mozilla4.0.3_vlx_3.0
+	;;
+
 "galaxy-s2")
 	echo DEVICE=galaxys2 >> .tmp-config &&
 	repo_sync galaxy-s2 &&
 	(cd device/samsung/galaxys2 && ./extract-files.sh)
-	;;
-"sp8810ea")
-	echo DEVICE=sp8810ea >> .tmp-config &&
-	repo_sync mozilla4.0.3_vlx_3.0_b2g 
-	#repo_sync sp8810ea 
 	;;
 
 "galaxy-nexus")
@@ -110,8 +129,11 @@ case "$1" in
 	echo Usage: $0 \(device name\)
 	echo
 	echo Valid devices to configure are:
+	echo - sp8810eabase
+	echo - sp8810eaplus
+	echo - sp8810ebbase
+	echo - sp8810ebplus
 	echo - galaxy-s2
-        echo - sp8810ea
 	echo - galaxy-nexus
 	echo - nexus-s
 	echo - otoro

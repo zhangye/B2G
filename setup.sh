@@ -1,9 +1,9 @@
 #!/bin/bash
 
 . load-config.sh
-
-LUNCH=${LUNCH:-full_${DEVICE}-eng}
-
+if [ ! $LUNCH ];then
+	LUNCH=${LUNCH:-full_${DEVICE}-eng}
+fi
 export USE_CCACHE=yes &&
 export GECKO_PATH &&
 export GAIA_PATH &&
