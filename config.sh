@@ -45,7 +45,7 @@ if [ -n "$2" ]; then
 	git commit -m "manifest" &&
 	cd ..
 else
-	GITREPO="gitb2g@58.246.137.26:b2g/b2g-manifest"
+	GITREPO="gitb2g@shandroid01.spreadtrum.com:b2g/b2g-manifest"
 	#GITREPO="git://github.com/weideng/b2g-manifest"
 fi
 
