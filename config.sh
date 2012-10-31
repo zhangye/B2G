@@ -144,6 +144,8 @@ case "$1" in
 	echo Valid devices to configure are:
 	echo - sp8810eabase
 	echo - sp8810eaplus
+	echo - sp8810lebase
+	echo - sp8810leplus
 	echo - sp8810ebbase
 	echo - sp8810ebplus
 	echo - galaxy-s2
