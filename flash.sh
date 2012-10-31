@@ -168,6 +168,9 @@ case "$DEVICE" in
 "sp8810ea")
 	flash_fastboot nounlock $PROJECT
 	;;
+"sp8810le")
+	flash_fastboot nounlock $PROJECT
+	;;
 "sp8810eb")
 	flash_fastboot nounlock $PROJECT
 	;;
