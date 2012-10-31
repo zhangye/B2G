@@ -77,6 +77,12 @@ case "$1" in
 	repo_sync mozilla4.0.3_vlx_3.0_b2g
 	;;
 
+"sp8810leplus")
+	echo DEVICE=sp8810le >> .tmp-config &&
+	echo LUNCH=sp8810leplus-eng >> .tmp-config &&
+	repo_sync mozilla4.0.3_vlx_3.0_b2g
+	;;
+
 "galaxy-s2")
 	echo DEVICE=galaxys2 >> .tmp-config &&
 	repo_sync galaxy-s2 &&
@@ -133,6 +139,7 @@ case "$1" in
 	echo - sp8810eaplus
 	echo - sp8810ebbase
 	echo - sp8810ebplus
+	echo - sp8810leplus
 	echo - galaxy-s2
 	echo - galaxy-nexus
 	echo - nexus-s
