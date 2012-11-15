@@ -5,6 +5,7 @@
 ADB=${ADB:-adb}
 FASTBOOT=${FASTBOOT:-fastboot}
 HEIMDALL=${HEIMDALL:-heimdall}
+VARIANT=${VARIANT:-eng}
 
 if [ ! -f "`which \"$ADB\"`" ]; then
 	ADB=out/host/`uname -s | tr "[[:upper:]]" "[[:lower:]]"`-x86/bin/adb
@@ -43,7 +44,25 @@ update_time()
 	run_adb shell setprop persist.sys.timezone $TIMEZONE
 }
 
+fastboot_flash_image()
+{
+	# $1 = {userdata,boot,system}
+	imgpath="out/target/product/$DEVICE/$1.img"
+	out="$(run_fastboot flash "$1" "$imgpath" 2>&1)"
+	rv="$?"
+	echo "$out"
 
+	if [[ "$rv" != "0" ]]; then
+		# Print a nice error message if we understand what went wrong.
+		if grep -q "too large" <(echo "$out"); then
+			echo ""
+			echo "Flashing $imgpath failed because the image was too large."
+			echo "Try re-flashing after running"
+			echo "  \$ rm -rf $(dirname "$imgpath")/data && ./build.sh"
+		fi
+		return $rv
+	fi
+}
 
 flash_fastboot()
 {
@@ -57,17 +76,17 @@ flash_fastboot()
 	fi
 	case $2 in
 	"system" | "boot" | "userdata")
-		run_fastboot flash $2 out/target/product/$DEVICE/$2.img &&
+		fastboot_flash_image $2 &&
 		run_fastboot reboot
 		;;
 
 	*)
 		run_fastboot erase cache &&
 		run_fastboot erase userdata &&
-		run_fastboot flash userdata out/target/product/$DEVICE/userdata.img &&
-		[ ! -e out/target/product/$DEVICE/boot.img ] ||
-		run_fastboot flash boot out/target/product/$DEVICE/boot.img &&
-		run_fastboot flash system out/target/product/$DEVICE/system.img &&
+		fastboot_flash_image userdata &&
+		([ ! -e out/target/product/$DEVICE/boot.img ] ||
+		fastboot_flash_image boot) &&
+		fastboot_flash_image system &&
 		run_fastboot reboot &&
 		update_time
 		;;
@@ -153,8 +172,15 @@ case "$PROJECT" in
 	;;
 
 "gaia")
-	make -C gaia install-gaia ADB="$ADB"
-	make -C gaia install-media-samples ADB="$ADB"
+	GAIA_MAKE_FLAGS="ADB=\"$ADB\""
+	USER_VARIANTS="user(debug)?"
+	if [[ "$VARIANT" =~ $USER_VARIANTS ]]; then
+		# Gaia's build takes care of remounting /system for production builds
+		GAIA_MAKE_FLAGS+=" PRODUCTION=1"
+	fi
+
+	make -C gaia install-gaia $GAIA_MAKE_FLAGS
+	make -C gaia install-media-samples $GAIA_MAKE_FLAGS
 	exit $?
 	;;
 
@@ -174,7 +200,8 @@ case "$DEVICE" in
 "sp8810eb")
 	flash_fastboot nounlock $PROJECT
 	;;
-"otoro")
+	
+"otoro"|"unagi")
 	flash_fastboot nounlock $PROJECT
 	;;
 
@@ -186,7 +213,11 @@ case "$DEVICE" in
 	flash_fastboot unlock $PROJECT
 	;;
 
-"crespo")
+"m4")
+	flash_fastboot unlock $PROJECT
+	;;
+
+"crespo"|"crespo4g")
 	flash_fastboot unlock $PROJECT
 	;;
 
