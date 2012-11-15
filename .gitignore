@@ -1,9 +1,13 @@
 .config
 .repo/
 .userconfig
+.var.profile
 *.swp
+*.pyc
+Adreno*
 Makefile
 abi/
+backup-*/
 bionic/
 bootable/
 build/
@@ -18,9 +22,11 @@ gaia/
 gecko/
 gonk-misc/
 hardware/
+kernel/
 libcore/
+librecovery/
 ndk/
-objdir-gecko/
+objdir-gecko*/
 out/
 prebuilt/
 prebuilts/
@@ -28,5 +34,4 @@ rilproxy/
 sdk/
 system/
 vendor/
-kernel/
 u-boot

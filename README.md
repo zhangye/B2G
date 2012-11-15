@@ -35,6 +35,17 @@ and talk to us on IRC:
 * 32bit zlib
 * make
 
+Additionally, if you're building the emulator, you probably need the the Mesa
+implementation of OpenGL.  On Ubuntu, this is the __libgl1-mesa-dev__ package.
+
+Ubuntu 12.10 ships with gcc 4.7 by default, which causes build errors pretty
+early in the process.  To use gcc 4.6, edit .userconfig and add
+
+    export CC=gcc-4.6
+    export CXX=g++-4.6
+
+Of course, you'll need the g++-4.6 package installed.
+
 ### OSX
 
 * XCode
@@ -147,3 +158,4 @@ To run specific tests (individual files, directories, or ini files):
 Specify the full path if you're using a different Gecko repo:
 
     ./test.sh /path/to/mozilla-central/dom/battery/test/marionette/test_battery.py
+
