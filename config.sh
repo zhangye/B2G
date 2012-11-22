@@ -1,7 +1,7 @@
 #!/bin/bash
 
-REPO=`which repo`
-#REPO=./repo
+#REPO=`which repo`
+REPO=./repo
 
 repo_sync() {
 	if [ "$GITREPO" = "$GIT_TEMP_REPO" ]; then
