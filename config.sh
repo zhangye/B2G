@@ -59,37 +59,37 @@ case "$1" in
 "sp8810eabase")
 	echo DEVICE=sp8810ea >> .tmp-config &&
 	echo LUNCH=sp8810eabase-eng >> .tmp-config &&
-	repo_sync nokia4.0.3_vlx_3.0_b2g
+	repo_sync nightly4.0.3_vlx_3.0_b2g
 	;;
 
 "sp8810eaplus")
 	echo DEVICE=sp8810ea >> .tmp-config &&
 	echo LUNCH=sp8810eaplus-eng >> .tmp-config &&
-	repo_sync nokia4.0.3_vlx_3.0_b2g
+	repo_sync nightly4.0.3_vlx_3.0_b2g
 	;;
 
 "sp8810lebase")
 	echo DEVICE=sp8810le >> .tmp-config &&
 	echo LUNCH=sp8810lebase-eng >> .tmp-config &&
-	repo_sync nokia4.0.3_vlx_3.0_b2g
+	repo_sync nightly4.0.3_vlx_3.0_b2g
 	;;
 
 "sp8810leplus")
 	echo DEVICE=sp8810le >> .tmp-config &&
 	echo LUNCH=sp8810leplus-eng >> .tmp-config &&
-	repo_sync nokia4.0.3_vlx_3.0_b2g
+	repo_sync nightly4.0.3_vlx_3.0_b2g
 	;;
 
 "sp8810ebbase")
 	echo DEVICE=sp8810eb >> .tmp-config &&
 	echo LUNCH=sp8810ebbase-eng >> .tmp-config &&
-	repo_sync nokia4.0.3_vlx_3.0_b2g
+	repo_sync nightly4.0.3_vlx_3.0_b2g
 	;;
 
 "sp8810ebplus")
 	echo DEVICE=sp8810eb >> .tmp-config &&
 	echo LUNCH=sp8810ebplus-eng >> .tmp-config &&
-	repo_sync nokia4.0.3_vlx_3.0_b2g
+	repo_sync nightly4.0.3_vlx_3.0_b2g
 	;;
 
 "galaxy-s2")
