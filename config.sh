@@ -36,7 +36,7 @@ esac
 
 #GITREPO=${GITREPO:-"git://github.com/mozilla-b2g/b2g-manifest"}
 #BRANCH=${BRANCH:-master}
-GITREPO="gitb2g@shandroid01.spreadtrum.com:b2g/b2g-manifest"
+GITREPO="https://github.com/zhangye/b2g-manifest.git"
 	
 GIT_TEMP_REPO="tmp_manifest_repo"
 if [ -n "$2" ]; then
