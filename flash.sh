@@ -227,6 +227,10 @@ case "$DEVICE" in
 	flash_fastboot nounlock $PROJECT
 	;;
 
+"tara")
+	flash_fastboot nounlock $PROJECT
+	;;
+
 "panda")
 	flash_fastboot unlock $PROJECT
 	;;

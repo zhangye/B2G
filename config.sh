@@ -28,8 +28,10 @@ case `uname` in
 	exit -1
 esac
 
-GITREPO=${GITREPO:-"git://github.com/mozilla-b2g/b2g-manifest"}
-BRANCH=${BRANCH:-v1-train}
+#GITREPO=${GITREPO:-"git://github.com/mozilla-b2g/b2g-manifest"}
+#BRANCH=${BRANCH:-v1-train}
+GITREPO=${GITREPO:-"git://github.com/zhangye/b2g-manifest"}
+BRANCH=${BRANCH:-sprd_tara}
 
 GIT_TEMP_REPO="tmp_manifest_repo"
 if [ -n "$2" ]; then
@@ -79,6 +81,12 @@ case "$1" in
 	repo_sync $1
 	;;
 
+"tara")
+	echo DEVICE=sp8810ea >> .tmp-config &&
+       echo LUNCH=sp8810eabase-eng >> .tmp-config &&
+	repo_sync $1
+	;;
+
 "pandaboard")
 	echo DEVICE=panda >> .tmp-config &&
 	repo_sync $1
@@ -106,6 +114,7 @@ case "$1" in
 	echo - nexus-s-4g
 	echo - otoro
 	echo - unagi
+	echo - tara
 	echo - pandaboard
 	echo - emulator
 	echo - emulator-x86
