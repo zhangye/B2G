@@ -59,6 +59,15 @@ fi &&
 configure_device &&
 time nice -n19 make $MAKE_FLAGS $@
 
+#add device link
+OUT_D="./out/target/product"
+
+if [ $DEVICE != $DEVICE_NAME ] && [ -d ${OUT_D}/${DEVICE} ]
+then
+    ln -s ${DEVICE} ${OUT_D}/${DEVICE_NAME}
+fi
+
+
 ret=$?
 echo -ne \\a
 if [ $ret -ne 0 ]; then
