@@ -30,7 +30,7 @@ esac
 
 #GITREPO=${GITREPO:-"git://github.com/mozilla-b2g/b2g-manifest"}
 #BRANCH=${BRANCH:-v1-train}
-GITREPO=${GITREPO:-"git://github.com/zhangye/b2g-manifest"}
+GITREPO=${GITREPO:-"https://github.com/zhangye/b2g-manifest.git"}
 BRANCH=${BRANCH:-sprd_tara}
 
 GIT_TEMP_REPO="tmp_manifest_repo"
